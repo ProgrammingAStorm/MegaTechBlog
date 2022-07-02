@@ -5,12 +5,11 @@ const Comment = require('./Comment');
 
 // create associations
 User.hasMany(Post, {
-    foreignKey: 'user_id'
+    onDelete: 'cascade', 
+    foreignKey: { name: 'user_id', allowNull: false } 
 });
 
-Post.belongsTo(User, {
-    foreignKey: 'user_id',
-});
+Post.belongsTo(User);
 
 User.belongsToMany(Post, {
     through: Vote,
@@ -41,11 +40,13 @@ Post.hasMany(Vote, {
 });
 
 Comment.belongsTo(User, {
-    foreignKey: 'user_id'
+    onDelete: 'cascade', 
+    foreignKey: { name: 'user_id', allowNull: false } 
 });
   
 Comment.belongsTo(Post, {
-    foreignKey: 'post_id'
+    onDelete: 'cascade', 
+    foreignKey: { name: 'post_id', allowNull: false } 
 });
   
 User.hasMany(Comment, {
