@@ -1,14 +1,19 @@
 {{> post-info post}}
 
 {{#if loggedIn}}
-  <form class="" id="comment-form">
-    <div>
-      <textarea name="comment-body"></textarea>
+  <form class="form m-3" id="comment-form">
+    <div class="field">
+      <label class="label" for="comment-body">Comment:</label>
+
+      <div class="control">
+        <textarea class="textarea" name="comment-body"></textarea>
+      </div>
     </div>
 
-    <div>
-      <button type="submit">add comment</button>
-      <button type="button" class="" id="upvote-btn">upvote</button>
+    <div class="field buttons">
+      <button type="submit" class="button">Add Comment</button>
+
+      <button type="button" class="button is-success" id="upvote-btn">Upvote</button>
     </div>
   </form>
 {{/if}}

@@ -1,12 +1,13 @@
-<div class="">
+<div class="section">
   {{#each this}}
-  <section class="">
-    <div class="">
-      {{user.username}} on {{format_date created_at}}
-    </div>
-    <div class="">
-      {{comment_text}}
-    </div>
-  </section>
+    <section class="box">
+      <h2 class="title is-size-3">
+        {{user.username}} on {{format_date created_at}}
+      </h2>
+
+      <div class="is-size-4">
+        {{comment_text}}
+      </div>
+    </section>
   {{/each}}
 </div>

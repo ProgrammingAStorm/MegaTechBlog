@@ -6,40 +6,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mega Tech Blog</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-  <div class="">
-    <header>
-      <h1>
-        <a href="/">Just Tech News</a>
-      </h1>
+  <header class="navbar">
+    <h1 class="navbar-brand">
+      <a class="navbar-item is-size-2" href="/">Just Tech News</a>
+    </h1>
 
-      <nav>
-        {{#if notHome}}
-          <a href="/">home</a>
-        {{/if}}        
+    <nav class="navbar-menu is-active is-flex is-mobile">
+      <div  class="navbar-start">
+        <div class="navbar-item">
+          <div class="buttons">
+            {{#if notHome}}
+              <a class="button" href="/">Home</a>
+            {{/if}}    
 
-        {{#if notDash}}
-          <a href="/dashboard">dashboard</a>
-        {{/if}}
+            {{#if notDash}}
+              <a class="button" href="/dashboard">Dashboard</a>
+            {{/if}}
+          </div>
+        </div>
+      </div>
 
-        {{#if loggedIn}}
-          <button id="logout" class="">logout</button>
-        {{else}}
-          <a href="/login">login / signin</a>
-        {{/if}}
-      </nav>
-    </header>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            {{#if loggedIn}}
+              <button class="button is-dark" id="logout" class="">Logout</button>
+            {{else}}
+              <a class="button is-primary" href="/login">Login / Signin</a>
+            {{/if}}
+          </div>
+        </div>        
+      </div>
+    </nav>
+  </header>
 
-    <main>
-      {{{ body }}}
-    </main>
+  <main class="section">
+    {{{ body }}}
+  </main>
 
-    <footer>
-      Thanks for visiting!
-    </footer>
-  </div>
+  <footer class="footer has-background-white">
+    <section class="section">
+      <div class="content is-flex is-align-items-center is-justify-content-center">
+        <p class="is-size-4 has-text-weight-semibold">Thanks for visiting!</p>
+      </div>
+    </section>
+  </footer>
 
   {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
